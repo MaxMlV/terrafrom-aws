@@ -26,3 +26,11 @@ resource "aws_internet_gateway" "mtc_internet_gateway" {
     Name = "dev-igw"
   }
 }
+
+resource "aws_route_table" "mct_rt" {
+  vpc_id = aws_vpc.mtc_vpc.id
+
+  tags = {
+    Name = "dev-public-rt"
+  }
+}
