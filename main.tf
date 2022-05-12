@@ -4,7 +4,7 @@ resource "aws_instance" "dev_instance" {
   key_name               = aws_key_pair.mtc_auth.key_name
   vpc_security_group_ids = [aws_security_group.mtc_sg.id]
   subnet_id              = aws_subnet.mtc_public_subnet.id
-  user_data              = file("userdata.tpl")
+  user_data              = templatefile("userdata.tpl", {})
 
   root_block_device {
     volume_size = 10
